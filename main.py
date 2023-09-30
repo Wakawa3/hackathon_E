@@ -6,6 +6,14 @@
 
 import random
 
+class FoodInfo:
+    def __init__(self):
+        self.name = ""
+        # self.type = ""
+        # self.vertical = ""
+        # self.horizontal = ""
+        self.pos = (0.0, 0.0)
+
 def creat_dots():
 
     x_dots=[100,200,300,400]
@@ -14,17 +22,15 @@ def creat_dots():
     y_dots=[100,200,300,400]
     random_y = random.choice(y_dots)
 
-    print(random_x)
-    print(random_y)    
+    # print(random_x)
+    # print(random_y)    
     return (random_x,random_y)
 
-class FoodInfo:
-    def __init__(self):
-        self.name = ""
-        # self.type = ""
-        # self.vertical = ""
-        # self.horizontal = ""
-        self.pos = (0.0, 0.0)
+def check_dup(pos: tuple[int,int], food_list: list[FoodInfo]):
+    for food in food_list:
+        if food.pos == pos:
+            return False
+    return True
 
 if __name__ == "__main__":
     type_list = ["staple", "main", "side"]
@@ -37,11 +43,26 @@ if __name__ == "__main__":
         food_list.append(FoodInfo())
         if(type == "staple"):
             food_list[-1].name = random.choice(staple_list)
-            food_list[-1].pos = creat_dots() #仮
+            pos = creat_dots()
+            while check_dup(pos, food_list) == False:
+                pos = creat_dots()
+            food_list[-1].pos = pos
+
         if(type == "main"):
             food_list[-1].name = random.choice(main_list)
-            food_list[-1].pos = creat_dots() #仮
+            pos = creat_dots()
+            while check_dup(pos, food_list) == False:
+                pos = creat_dots()
+            food_list[-1].pos = pos
+
         if(type == "side"):
             food_list[-1].name = random.choice(side_list)
-            food_list[-1].pos = creat_dots() #仮
+            pos = creat_dots()
+            while check_dup(pos, food_list) == False:
+                pos = creat_dots()
+            food_list[-1].pos = pos
+
     #draw(food_list)
+    for i in food_list:
+        print(i.name)
+        print(i.pos)
