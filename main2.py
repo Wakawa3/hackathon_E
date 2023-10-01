@@ -112,3 +112,7 @@ if __name__ == "__main__":
     button.pack()
 
     tk.mainloop()
+
+
+    #GUIの関数書きました！
+    
