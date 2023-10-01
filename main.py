@@ -1,29 +1,21 @@
-#test
-#test2
-#test3
-#test4
-#内容:複数の座標のうちから、座標をランダムに選んで、座標を返す関数
-
 import random
 
 class FoodInfo:
     def __init__(self):
         self.name = ""
         # self.type = ""
-        # self.vertical = ""
-        # self.horizontal = ""
         self.pos = (0.0, 0.0)
 
+
+#内容:複数の座標のうちから、座標をランダムに選んで、座標を返す関数
 def creat_dots():
 
-    x_dots=[100,200,300,400]
+    x_dots=[120,240]
     random_x = random.choice(x_dots)
 
-    y_dots=[100,200,300,400]
+    y_dots=[70,160]
     random_y = random.choice(y_dots)
 
-    # print(random_x)
-    # print(random_y)    
     return (random_x,random_y)
 
 def check_dup(pos: tuple[int,int], food_list: list[FoodInfo]):
@@ -63,6 +55,7 @@ if __name__ == "__main__":
             food_list[-1].pos = pos
 
     #draw(food_list) #ここで描画
+    
     for i in food_list:
         print(i.name)
         print(i.pos)
