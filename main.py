@@ -67,17 +67,12 @@ if __name__ == "__main__":
                 food_list[-1].pos = pos
 
             for food in food_list:
-                print(food.pos[0])
                 canvas.create_rectangle(food.pos[0]-60,food.pos[1]+45,food.pos[0]+60,food.pos[1]-45, fill = "white", width = 5)
-                canvas.create_text(food.pos[0],food.pos[1], text=food.name, anchor="se", font=("HG丸ｺﾞｼｯｸM-PRO",15))
+                canvas.create_text(food.pos[0],food.pos[1], text=food.name, anchor="center", font=("HG丸ｺﾞｼｯｸM-PRO",15))
         
         for i in food_list:
             print(i.name)
             print(i.pos)
-        
-
-
-    # 図形の描画 
 
     button=tk.Button(root,text="push",command = main_loop)
     button.pack()
