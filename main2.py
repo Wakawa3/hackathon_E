@@ -48,6 +48,7 @@ if __name__ == "__main__":
     canvas.pack(fill = tk.BOTH, expand = True)
 
     def main_loop():
+        canvas.delete("all")
         type_list = ["staple", "main", "side", "side","side","side"]
         random.sample(type_list, 4)
         staple_list = [FoodBasicInfo("ご飯","主食",200,300), FoodBasicInfo("パスタ","主食",200,300)]
