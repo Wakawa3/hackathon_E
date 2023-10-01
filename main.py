@@ -1,4 +1,5 @@
 import random
+import tkinter as tk
 
 class FoodInfo:
     def __init__(self):
@@ -23,6 +24,23 @@ def check_dup(pos: tuple[int,int], food_list: list[FoodInfo]):
         if food.pos == pos:
             return False
     return True
+
+
+root = tk.Tk()
+root.geometry("300x300")
+
+
+# Canvasの作成
+canvas = tk.Canvas(root, bg = "white")
+# Canvasを配置
+canvas.pack(fill = tk.BOTH, expand = True)
+
+
+def hyozi(Food_list:list[FoodInfo]):
+    for food in Food_list:
+        canvas.create_rectangle(food.pos.index(0)-60,food.pos.index(1)+45,food.pos.index(0)+60,food.pos.index(1)-45, fill = "white", width = 5)
+        canvas.create_text(food.pos.index(0),food.pos.index(1), text=food.name, anchor="se", font=("HG丸ｺﾞｼｯｸM-PRO",15))
+
 
 if __name__ == "__main__":
     type_list = ["staple", "main", "side", "side"]
@@ -53,9 +71,12 @@ if __name__ == "__main__":
             while check_dup(pos, food_list) == False:
                 pos = creat_dots()
             food_list[-1].pos = pos
-
-    #draw(food_list) #ここで描画
     
     for i in food_list:
         print(i.name)
         print(i.pos)
+    
+    button=tk.Button(root,text="push",command = hyozi)
+    button.pack()
+
+    tk.mainloop()
