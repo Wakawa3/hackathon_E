@@ -66,10 +66,10 @@ if __name__ == "__main__":
                     pos = creat_dots()
                 food_list[-1].pos = pos
 
-            for food in food_list:
-                canvas.create_rectangle(food.pos[0]-150,food.pos[1]+100,food.pos[0]+150,food.pos[1]-100, fill = "white", width = 5)
-                canvas.create_text(food.pos[0],food.pos[1], text=food.name, anchor="center", font=("HG丸ｺﾞｼｯｸM-PRO",15))
-        
+        for food in food_list:
+            canvas.create_rectangle(food.pos[0]-150,food.pos[1]+100,food.pos[0]+150,food.pos[1]-100, fill = "white", width = 5)
+            canvas.create_text(food.pos[0],food.pos[1], text=food.name, anchor="center", font=("HG丸ｺﾞｼｯｸM-PRO",15))
+    
         for i in food_list:
             print(i.name)
             print(i.pos)
