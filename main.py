@@ -33,10 +33,10 @@ def check_dup(pos: tuple[int,int], food_list: list[FoodInfo]):
     return True
 
 if __name__ == "__main__":
-    type_list = ["staple", "main", "side"]
-    random.sample(type_list, 3)
+    type_list = ["staple", "main", "side", "side"]
+    random.sample(type_list, 4)
     staple_list = ["ご飯", "パスタ"]
-    main_list = ["唐揚げ", "ハンバーグ"]
+    main_list = ["唐揚げ", "ハンバーグ", "にくじゃが", "コロッケ"]
     side_list = ["もやし炒め", "ほうれん草のおひたし"]
     food_list = []
     for type in type_list:
@@ -62,7 +62,7 @@ if __name__ == "__main__":
                 pos = creat_dots()
             food_list[-1].pos = pos
 
-    #draw(food_list)
+    #draw(food_list) #ここで描画
     for i in food_list:
         print(i.name)
         print(i.pos)
