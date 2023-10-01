@@ -24,7 +24,7 @@ def decide_dots(food_list: list[main2.FoodInfo], bento_x, bento_y, yoko, tate):
                     # food_y2 = food.pos[1] + food.vertical/2 
 
                     # if (x1 < food_x2 and y1 < food_y2) or (x2 < food_x1 and y1 < food_y1)
-                    if (math.fabs(x_pos - food.pos[0]) > yoko/2 + food.horizontal/2) and (math.fabs(y_pos - food.pos[1]) > tate/2 + food.vertical/2):
+                    if (math.fabs(x_pos - food.pos[0]) > yoko/2 + food.horizontal/2) or (math.fabs(y_pos - food.pos[1]) > tate/2 + food.vertical/2):
                         continue
                     else:
                         break
