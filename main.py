@@ -26,22 +26,6 @@ def check_dup(pos: tuple[int,int], food_list: list[FoodInfo]):
     return True
 
 
-root = tk.Tk()
-root.geometry("300x300")
-
-
-# Canvasの作成
-canvas = tk.Canvas(root, bg = "white")
-# Canvasを配置
-canvas.pack(fill = tk.BOTH, expand = True)
-
-
-def hyozi(Food_list:list[FoodInfo]):
-    for food in Food_list:
-        canvas.create_rectangle(food.pos.index(0)-60,food.pos.index(1)+45,food.pos.index(0)+60,food.pos.index(1)-45, fill = "white", width = 5)
-        canvas.create_text(food.pos.index(0),food.pos.index(1), text=food.name, anchor="se", font=("HG丸ｺﾞｼｯｸM-PRO",15))
-
-
 if __name__ == "__main__":
     type_list = ["staple", "main", "side", "side"]
     random.sample(type_list, 4)
@@ -76,7 +60,25 @@ if __name__ == "__main__":
         print(i.name)
         print(i.pos)
     
-    button=tk.Button(root,text="push",command = hyozi)
+
+    root = tk.Tk()
+    root.geometry("300x300")
+
+
+    # Canvasの作成
+    canvas = tk.Canvas(root, bg = "white")
+    # Canvasを配置
+    canvas.pack(fill = tk.BOTH, expand = True)
+
+    # 図形の描画 
+    def hyozi(Food_list:list[FoodInfo]):
+        for food in Food_list:
+            canvas.create_rectangle(food.pos.index(0)-60,food.pos.index(1)+45,food.pos.index(0)+60,food.pos.index(1)-45, fill = "white", width = 5)
+            canvas.create_text(food.pos.index(0),food.pos.index(1), text=food.name, anchor="se", font=("HG丸ｺﾞｼｯｸM-PRO",15))
+    
+
+
+    button=tk.Button(root,text="push",command = hyozi(food_list))
     button.pack()
 
     tk.mainloop()
