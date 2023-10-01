@@ -11,10 +11,10 @@ class FoodInfo:
 #内容:複数の座標のうちから、座標をランダムに選んで、座標を返す関数
 def creat_dots():
 
-    x_dots=[120,240]
+    x_dots=[250,550]
     random_x = random.choice(x_dots)
 
-    y_dots=[70,160]
+    y_dots=[200,400]
     random_y = random.choice(y_dots)
 
     return (random_x,random_y)
@@ -28,7 +28,7 @@ def check_dup(pos: tuple[int,int], food_list: list[FoodInfo]):
 
 if __name__ == "__main__":
     root = tk.Tk()
-    root.geometry("300x300")
+    root.geometry("800x600")
 
 
     # Canvasの作成
@@ -67,7 +67,7 @@ if __name__ == "__main__":
                 food_list[-1].pos = pos
 
             for food in food_list:
-                canvas.create_rectangle(food.pos[0]-60,food.pos[1]+45,food.pos[0]+60,food.pos[1]-45, fill = "white", width = 5)
+                canvas.create_rectangle(food.pos[0]-150,food.pos[1]+100,food.pos[0]+150,food.pos[1]-100, fill = "white", width = 5)
                 canvas.create_text(food.pos[0],food.pos[1], text=food.name, anchor="center", font=("HG丸ｺﾞｼｯｸM-PRO",15))
         
         for i in food_list:
