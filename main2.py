@@ -50,12 +50,13 @@ if __name__ == "__main__":
     def main_loop():
         canvas.delete("all")
         type_list = ["staple", "main", "side", "side","side","side"]
-        random.sample(type_list, 6)
+        type_list = random.sample(type_list, 6)
         staple_list = [FoodBasicInfo("ご飯","主食",200,300), FoodBasicInfo("パスタ","主食",200,300)]
         main_list = [FoodBasicInfo("唐揚げ","主菜",200,300), FoodBasicInfo("ハンバーグ","主菜",200,300), FoodBasicInfo("にくじゃが","主菜",200,300), FoodBasicInfo("コロッケ","主菜",200,300)]
         side_list = [FoodBasicInfo("もやし炒め","副菜",100,150), FoodBasicInfo("ほうれん草のおひたし","副菜",100,200), FoodBasicInfo("煮物","副菜",70,200)]
         food_list = []
         i = 0
+        print(type_list)
         for type in type_list:
             food:FoodBasicInfo
             if(type == "staple"):
