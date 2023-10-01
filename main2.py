@@ -50,9 +50,9 @@ if __name__ == "__main__":
     def main_loop():
         type_list = ["staple", "main", "side", "side"]
         random.sample(type_list, 4)
-        staple_list = [FoodBasicInfo("ご飯","主食",120,90), FoodBasicInfo("パスタ","主食",120,90)]
-        main_list = [FoodBasicInfo("唐揚げ","主菜",120,90), FoodBasicInfo("ハンバーグ","主菜",120,90), FoodBasicInfo("にくじゃが","主菜",120,90), FoodBasicInfo("コロッケ","主菜",120,90)]
-        side_list = [FoodBasicInfo("もやし炒め","副菜",120,90), FoodBasicInfo("ほうれん草のおひたし","副菜",120,90)]
+        staple_list = [FoodBasicInfo("ご飯","主食",200,300), FoodBasicInfo("パスタ","主食",200,300)]
+        main_list = [FoodBasicInfo("唐揚げ","主菜",200,300), FoodBasicInfo("ハンバーグ","主菜",200,300), FoodBasicInfo("にくじゃが","主菜",200,300), FoodBasicInfo("コロッケ","主菜",200,300)]
+        side_list = [FoodBasicInfo("もやし炒め","副菜",200,300), FoodBasicInfo("ほうれん草のおひたし","副菜",200,300)]
         food_list = []
         i = 0
         for type in type_list:
@@ -85,9 +85,9 @@ if __name__ == "__main__":
 
 
         for food in food_list:
-            canvas.create_rectangle(food.pos[0]-60,food.pos[1]+45,food.pos[0]+60,food.pos[1]-45, fill = "white", width = 5)
+            canvas.create_rectangle(food.pos[0]-food.horizontal/2,food.pos[1]+food.vertical/2,food.pos[0]+food.horizontal/2,food.pos[1]-food.vertical/2, fill = "white", width = 5)
             canvas.create_text(food.pos[0],food.pos[1], text=food.name, anchor="center", font=("HG丸ｺﾞｼｯｸM-PRO",15))
-            canvas.create_text(food.pos[0],food.pos[1]-20, text=food.name, anchor="center", font=("HG丸ｺﾞｼｯｸM-PRO",10))
+            canvas.create_text(food.pos[0],food.pos[1]-20, text=food.type, anchor="center", font=("HG丸ｺﾞｼｯｸM-PRO",10))
             
         for i in food_list:
             print(i.name)
