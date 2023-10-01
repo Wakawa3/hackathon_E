@@ -16,10 +16,10 @@ class FoodInfo:
 
 def creat_dots():
 
-    x_dots=[100,200,300,400]
+    x_dots=[120,240]
     random_x = random.choice(x_dots)
 
-    y_dots=[100,200,300,400]
+    y_dots=[70,160]
     random_y = random.choice(y_dots)
 
     # print(random_x)
@@ -63,6 +63,7 @@ if __name__ == "__main__":
             food_list[-1].pos = pos
 
     #draw(food_list) #ここで描画
+    
     for i in food_list:
         print(i.name)
         print(i.pos)
