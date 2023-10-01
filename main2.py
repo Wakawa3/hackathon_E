@@ -1,5 +1,6 @@
 import random
 import tkinter as tk
+import decide_dots
 
 class FoodBasicInfo:
     def __init__(self, name, type, vertical, horizontal):
@@ -38,7 +39,7 @@ def check_dup(pos: tuple[int,int], food_list: list[FoodInfo]):
 
 if __name__ == "__main__":
     root = tk.Tk()
-    root.geometry("300x300")
+    root.geometry("800x600")
 
 
     # Canvasの作成
@@ -55,39 +56,38 @@ if __name__ == "__main__":
         food_list = []
         i = 0
         for type in type_list:
-            # print(type)
-            # print(i)
             if(type == "staple"):
                 food = random.choice(staple_list)
+                # pos = creat_dots()
+                pos = decide_dots.decide_dots(food_list,800,600,food.horizontal, food.vertical)
                 food_list.append(FoodInfo(food))
-                pos = creat_dots()
-                # pos = creat_dots(food_list[-1].vertical, food_list[-1].horizontal)
-                while check_dup(pos, food_list) == False:
-                    pos = creat_dots()
+                # while check_dup(pos, food_list) == False:
+                #     pos = creat_dots()
                 food_list[-1].pos = pos
 
             if(type == "main"):
                 food = random.choice(main_list)
+                # pos = creat_dots()
+                pos = decide_dots.decide_dots(food_list,800,600,food.horizontal, food.vertical)
                 food_list.append(FoodInfo(food))
-                pos = creat_dots()
-                # pos = creat_dots(food_list[-1].vertical, food_list[-1].horizontal)
-                while check_dup(pos, food_list) == False:
-                    pos = creat_dots()
+                # while check_dup(pos, food_list) == False:
+                #     pos = creat_dots()
                 food_list[-1].pos = pos
 
             if(type == "side"):
                 food = random.choice(side_list)
+                # pos = creat_dots()
+                pos = decide_dots.decide_dots(food_list,800,600,food.horizontal, food.vertical)
                 food_list.append(FoodInfo(food))
-                pos = creat_dots()
-                # pos = creat_dots(food_list[-1].vertical, food_list[-1].horizontal)
-                while check_dup(pos, food_list) == False:
-                    pos = creat_dots()
+                # while check_dup(pos, food_list) == False:
+                #     pos = creat_dots()
                 food_list[-1].pos = pos
 
 
         for food in food_list:
             canvas.create_rectangle(food.pos[0]-60,food.pos[1]+45,food.pos[0]+60,food.pos[1]-45, fill = "white", width = 5)
             canvas.create_text(food.pos[0],food.pos[1], text=food.name, anchor="center", font=("HG丸ｺﾞｼｯｸM-PRO",15))
+            canvas.create_text(food.pos[0],food.pos[1]-20, text=food.name, anchor="center", font=("HG丸ｺﾞｼｯｸM-PRO",10))
             
         for i in food_list:
             print(i.name)
