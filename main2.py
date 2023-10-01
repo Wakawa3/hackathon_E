@@ -49,15 +49,35 @@ if __name__ == "__main__":
 
     def main_loop():
         canvas.delete("all")
-        type_list = ["staple", "main", "side", "side","side","side"]
-        type_list = random.sample(type_list, 6)
+        type_list1 = ["staple", "main"]
+        type_list1 = random.sample(type_list1, 2)
+        type_list2 = ["side", "side","side","side"]
+        type_list2 = random.sample(type_list2, 4)
+
         staple_list = [FoodBasicInfo("ご飯","主食",180,250), FoodBasicInfo("パスタ","主食",180,160)]
         main_list = [FoodBasicInfo("唐揚げ","主菜",300,200), FoodBasicInfo("ハンバーグ","主菜",300,200), FoodBasicInfo("にくじゃが","主菜",200,300), FoodBasicInfo("コロッケ","主菜",200,300)]
         side_list = [FoodBasicInfo("もやし炒め","副菜",100,150), FoodBasicInfo("ほうれん草のおひたし","副菜",100,200), FoodBasicInfo("煮物","副菜",70,200)]
         food_list = []
         i = 0
-        print(type_list)
-        for type in type_list:
+        for type in type_list1:
+            food:FoodBasicInfo
+            if(type == "staple"):
+                food = random.choice(staple_list)
+
+            if(type == "main"):
+                food = random.choice(main_list)
+
+            if(type == "side"):
+                food = random.choice(side_list)
+            
+            # pos = creat_dots()
+            pos = decide_dots.decide_dots(food_list,520,420,food.horizontal, food.vertical)
+            food_list.append(FoodInfo(food))
+            # while check_dup(pos, food_list) == False:
+            #     pos = creat_dots()
+            food_list[-1].pos = pos
+        
+        for type in type_list2:
             food:FoodBasicInfo
             if(type == "staple"):
                 food = random.choice(staple_list)
