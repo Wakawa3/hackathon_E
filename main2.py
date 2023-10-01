@@ -51,8 +51,8 @@ if __name__ == "__main__":
         canvas.delete("all")
         type_list = ["staple", "main", "side", "side","side","side"]
         type_list = random.sample(type_list, 6)
-        staple_list = [FoodBasicInfo("ご飯","主食",200,300), FoodBasicInfo("パスタ","主食",200,300)]
-        main_list = [FoodBasicInfo("唐揚げ","主菜",200,300), FoodBasicInfo("ハンバーグ","主菜",200,300), FoodBasicInfo("にくじゃが","主菜",200,300), FoodBasicInfo("コロッケ","主菜",200,300)]
+        staple_list = [FoodBasicInfo("ご飯","主食",180,250), FoodBasicInfo("パスタ","主食",180,160)]
+        main_list = [FoodBasicInfo("唐揚げ","主菜",300,200), FoodBasicInfo("ハンバーグ","主菜",300,200), FoodBasicInfo("にくじゃが","主菜",200,300), FoodBasicInfo("コロッケ","主菜",200,300)]
         side_list = [FoodBasicInfo("もやし炒め","副菜",100,150), FoodBasicInfo("ほうれん草のおひたし","副菜",100,200), FoodBasicInfo("煮物","副菜",70,200)]
         food_list = []
         i = 0
@@ -69,7 +69,7 @@ if __name__ == "__main__":
                 food = random.choice(side_list)
             
             # pos = creat_dots()
-            pos = decide_dots.decide_dots(food_list,800,420,food.horizontal, food.vertical)
+            pos = decide_dots.decide_dots(food_list,520,420,food.horizontal, food.vertical)
             food_list.append(FoodInfo(food))
             # while check_dup(pos, food_list) == False:
             #     pos = creat_dots()
@@ -77,6 +77,8 @@ if __name__ == "__main__":
 
 
         for food in food_list:
+            if food.pos[0] == 0.0 and food.pos[1] ==0.0:
+                continue
             canvas.create_rectangle(food.pos[0]-food.horizontal/2,food.pos[1]+food.vertical/2,food.pos[0]+food.horizontal/2,food.pos[1]-food.vertical/2, fill = "white", width = 5)
             canvas.create_text(food.pos[0],food.pos[1], text=food.name, anchor="center", font=("HG丸ｺﾞｼｯｸM-PRO",15))
             canvas.create_text(food.pos[0],food.pos[1]-20, text=food.type, anchor="center", font=("HG丸ｺﾞｼｯｸM-PRO",10))
